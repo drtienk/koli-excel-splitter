@@ -7,7 +7,7 @@ export default defineConfig({
     port: 3000,
     proxy: {
       '/api': {
-        target: 'http://localhost:5003',
+        target: 'https://koli-excel-splitter-production.up.railway.app',
         changeOrigin: true,
       },
     },

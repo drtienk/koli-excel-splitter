@@ -11,6 +11,8 @@ import InventoryPreview from './components/InventoryPreview';
 import MergeUpload from './components/MergeUpload';
 import './App.css';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://koli-excel-splitter-production.up.railway.app';
+
 type Tab = 'split' | 'merge';
 
 export default function App() {
@@ -199,20 +201,20 @@ export default function App() {
                 <div className="download-section">
                   <h3>Download Generated Files</h3>
                   <a
-                    href={`${splitResult.downloads.incomeStatement}?company=${encodeURIComponent(company)}&period=${encodeURIComponent(period)}`}
+                    href={`${API_BASE_URL}${splitResult.downloads.incomeStatement}?company=${encodeURIComponent(company)}&period=${encodeURIComponent(period)}`}
                     className="download-btn"
                   >
                     📊 Income Statement
                   </a>
                   <a
-                    href={`${splitResult.downloads.salesOrder}?company=${encodeURIComponent(company)}&period=${encodeURIComponent(period)}`}
+                    href={`${API_BASE_URL}${splitResult.downloads.salesOrder}?company=${encodeURIComponent(company)}&period=${encodeURIComponent(period)}`}
                     className="download-btn"
                   >
                     📦 Sales Order
                   </a>
                   {splitResult.downloads.cogsDetail && (
                     <a
-                      href={`${splitResult.downloads.cogsDetail}?company=${encodeURIComponent(company)}&period=${encodeURIComponent(period)}`}
+                      href={`${API_BASE_URL}${splitResult.downloads.cogsDetail}?company=${encodeURIComponent(company)}&period=${encodeURIComponent(period)}`}
                       className="download-btn"
                     >
                       📈 COGS Detail
@@ -220,7 +222,7 @@ export default function App() {
                   )}
                   {splitResult.downloads.activityDriver && (
                     <a
-                      href={`${splitResult.downloads.activityDriver}?company=${encodeURIComponent(company)}&period=${encodeURIComponent(period)}`}
+                      href={`${API_BASE_URL}${splitResult.downloads.activityDriver}?company=${encodeURIComponent(company)}&period=${encodeURIComponent(period)}`}
                       className="download-btn"
                     >
                       📋 Time Sheet
@@ -228,7 +230,7 @@ export default function App() {
                   )}
                   {splitResult.downloads.expenseDetail && (
                     <a
-                      href={`${splitResult.downloads.expenseDetail}?company=${encodeURIComponent(company)}&period=${encodeURIComponent(period)}`}
+                      href={`${API_BASE_URL}${splitResult.downloads.expenseDetail}?company=${encodeURIComponent(company)}&period=${encodeURIComponent(period)}`}
                       className="download-btn"
                     >
                       💰 Expense Detail
@@ -236,7 +238,7 @@ export default function App() {
                   )}
                   {splitResult.downloads.inventory && (
                     <a
-                      href={`${splitResult.downloads.inventory}?company=${encodeURIComponent(company)}&period=${encodeURIComponent(period)}`}
+                      href={`${API_BASE_URL}${splitResult.downloads.inventory}?company=${encodeURIComponent(company)}&period=${encodeURIComponent(period)}`}
                       className="download-btn"
                     >
                       📦 Inventory

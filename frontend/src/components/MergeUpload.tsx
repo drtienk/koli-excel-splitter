@@ -1,6 +1,8 @@
 import React, { useState, useRef } from 'react';
 import axios from 'axios';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://koli-excel-splitter-production.up.railway.app';
+
 interface MergeUploadProps {
   onMergeComplete: (result: any) => void;
 }
@@ -41,7 +43,7 @@ export default function MergeUpload({ onMergeComplete }: MergeUploadProps) {
       formData.append('files', files[0]);
       formData.append('files', files[1]);
 
-      const response = await axios.post('/api/merge', formData, {
+      const response = await axios.post(`${API_BASE_URL}/api/merge`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

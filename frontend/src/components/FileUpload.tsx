@@ -1,6 +1,8 @@
 import React, { useState, useRef } from 'react';
 import axios from 'axios';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://koli-excel-splitter-production.up.railway.app';
+
 interface FileUploadProps {
   onSplitComplete: (result: any) => void;
   onExpenseComplete?: (result: any) => void;
@@ -49,7 +51,7 @@ export default function FileUpload({ onSplitComplete }: FileUploadProps) {
       const formData = new FormData();
       formData.append('file', file);
 
-      const response = await axios.post('/api/split', formData, {
+      const response = await axios.post(`${API_BASE_URL}/api/split`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
